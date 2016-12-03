@@ -28,12 +28,15 @@ You should have received a copy of the GNU General Public License
                               includes
 -------------------------------------------------------------------------*/
 #include <ncurses.h>
-
+#include <stdlib.h>
+#include <inttypes.h>
+#include "../inc/pole.h"
 /*-------------------------------------------------------------------------
                               prototypes
 -------------------------------------------------------------------------*/
 int game_init_screen();
 int game_init_map();
+int game_user_inputs(uint8_t user_input, Pole* pole);
 #endif
 
 

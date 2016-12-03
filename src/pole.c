@@ -37,5 +37,61 @@ Pole* pole_init(uint8_t initial_x, uint8_t initial_y) {
 }
 
 void pole_draw(Pole* pole) {
-   mvprintw(pole->x_position, pole->y_position, "X");
+   mvprintw(pole->y_position, pole->x_position, "X");
+}
+
+void pole_move_left(Pole* pole) {
+   mvprintw(pole->y_position, pole->x_position, ".");
+   pole->x_position--;
+   pole_draw(pole);
+}
+
+void pole_move_down(Pole* pole) {
+   mvprintw(pole->y_position, pole->x_position, ".");
+   pole->y_position++;
+   pole_draw(pole);
+}
+
+void pole_move_up(Pole* pole) {
+   mvprintw(pole->y_position, pole->x_position, ".");
+   pole->y_position--;
+   pole_draw(pole);
+}
+
+void pole_move_rigth(Pole* pole) {
+   mvprintw(pole->y_position, pole->x_position, ".");
+   pole->x_position++;
+   pole_draw(pole);
+}
+
+bool pole_check_move_left(Pole* pole) {
+   uint8_t new_x;
+   uint8_t new_y;
+   new_x = pole->x_position;
+   new_y = pole->y_position;
+   return (mvinch(new_y, new_x - 1) == '.') ? true: false;
+}
+
+bool pole_check_move_down(Pole* pole) {
+   uint8_t new_x;
+   uint8_t new_y;
+   new_x = pole->x_position;
+   new_y = pole->y_position;
+   return (mvinch(new_y + 1, new_x) == '.') ? true: false;
+}
+
+bool pole_check_move_up(Pole* pole) {
+   uint8_t new_x;
+   uint8_t new_y;
+   new_x = pole->x_position;
+   new_y = pole->y_position;
+   return (mvinch(new_y - 1, new_x) == '.') ? true: false;
+}
+
+bool pole_check_move_rigth(Pole* pole) {
+   uint8_t new_x;
+   uint8_t new_y;
+   new_x = pole->x_position;
+   new_y = pole->y_position;
+   return (mvinch(new_y, new_x + 1) == '.') ? true: false;
 }

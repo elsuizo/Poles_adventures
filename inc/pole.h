@@ -45,5 +45,14 @@ typedef struct _pole {
 -------------------------------------------------------------------------*/
 Pole* pole_init(uint8_t initial_x, uint8_t initial_y);
 void pole_draw(Pole* pole);
+void pole_move_left(Pole* pole);
+void pole_move_down(Pole* pole);
+void pole_move_up(Pole* pole);
+void pole_move_rigth(Pole* pole);
+
+bool pole_check_move_rigth(Pole* pole);
+bool pole_check_move_left(Pole* pole);
+bool pole_check_move_down(Pole* pole);
+bool pole_check_move_up(Pole* pole);
 #endif
 

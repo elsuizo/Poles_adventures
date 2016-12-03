@@ -26,13 +26,14 @@ You should have received a copy of the GNU General Public License
 
 int main(void)
 {
-   int ch;
+   uint8_t user_imput;
    game_init_screen();
    game_init_map();
    Pole* dominant;
-   dominant = pole_init(3,3);
+   dominant = pole_init(16,13); /**< inside the room */
    pole_draw(dominant);
-   while ((ch = getch()) != 'q') {
+   while ((user_imput = getch()) != 'q') {
+      game_user_inputs(user_imput, dominant);
    }
    endwin();
 
